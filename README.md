@@ -541,4 +541,4 @@ And Voila! We've learned how to build, train, and deploy a neural network with M
 
 ## Part C: Training the Model in Watson Studio
 
-(Build models using Jupyter Notebooks in IBM Watson Studio)[https://developer.ibm.com/tutorials/watson-studio-using-jupyter-notebook/]
+[Build models using Jupyter Notebooks in IBM Watson Studio](https://developer.ibm.com/tutorials/watson-studio-using-jupyter-notebook/)
