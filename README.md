@@ -52,7 +52,7 @@ Training neural networks (NNs) to classify handwritten digits has become somethi
 2. For a very long time, computers struggled to recognise natural human input, but with NNs the problem is essentially trivial to solve (we'll likely get a > 98% accuracy with the model we'll build)
 3. The architecture for recognizing handwritten digits is reuseable for wider image classification cases, so if you're looking to analyse visual datasets with CNNs, MNIST is a great way to cut your teeth.
 
-## Starting Your Project
+## Part A: Building the Application
 
 The code in this repo is a scaffold for the neural network and app that you'll end up with if you follow this workshop to the end.
 
@@ -353,7 +353,7 @@ This will commit and push all of the files for our application to your GitHub re
 
 Now it's time for some Minishift goodness.
 
-## Deploying our application to Minishift.
+## Part B: Deploying our Application to Minishift.
 
 ### Creating our project + application
 If you didn't install and setup Minishift at the start of this tutorial with [Mofe's guide](https://github.com/IBMDeveloperUK/minishift101/tree/master/workshop), go and do that now.
