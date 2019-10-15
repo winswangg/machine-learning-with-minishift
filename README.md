@@ -538,3 +538,7 @@ To do this, enter:
 `git push origin master`
 
 And Voila! We've learned how to build, train, and deploy a neural network with Minishift.
+
+## Part C: Training the Model in Watson Studio
+
+
