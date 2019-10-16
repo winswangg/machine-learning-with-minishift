@@ -577,3 +577,6 @@ The environment setup follows the first few sections of the [Initial Data Explor
 
 You can tweak the resources your Jupyter Notebook uses to see how changing the number of CPUs and the amount of RAM affects your training time. You can also try modifying the batch size and number of epochs to see the effects of those changes as well.
 
+Watson Studio Time to Beat:
+~80s per epoch
+.9916 accuracy
