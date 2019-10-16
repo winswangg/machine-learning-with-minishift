@@ -1,27 +1,5 @@
 # Training and Deploying Machine Learning Models with Containers
 
-## Machine learning dependencies are a hassle...
-
-Between ensuring that the right version Python/Pip are installed on your system, and that it doesn't conflict with other Python/Pip versions on your system AND that when you deploy your model to the cloud that the versions of the dependencies you've used in your projects are still compatible with the version on your cloud-based system, it's a wonder that we ever get any time to focus on building and training our neural networks.
-
-Fortunately, there's a way to ensure that all of this is a never a problem again - Containers! (specifically, [Minishift](https://github.com/minishift/minishift) )
-
-With containers, we can create a clean, virtual environment to setup and train our neural networks in, and then deploy them at scale with the _exact same_ same environment. No more dependency hell!
-
-## "But... won't that be slower?"
-
-As with everything in life, there are caveats to this approach. You are training your network on a virtualised system, so you're not going to get the full, raw power of your machine being utilised in the training process. Even with small networks, training can take quite some time, even longer inside a virtual environment. However, if you're a machine learning focussed developer with myriad networks to iterate and train, managing all of those dependencies can take hours to configure, and there's no guarentee that if there isn't a problem on your system, that there won't be when it's deployed to the production environment.
-
-Although this approach will take longer to train, the time savings in reducing the complexity of your setup should work to offset, *and* when you complete this workshop, you'll be able to deploy your model to a super-scalable OpenShift Cluser (if you so wish) where you can scale to meet the needs of your users in next to no time at all.
-
-## "Can't I just use a Virtual Environment instead?"
-
-Absolutely, if that works for you, go for it, but depending on the virtual environment you're using, it can be equally as awkward to prepare your project as managing the dependencies manually (in fact, I had the idea for this workshop after spending 6 hours fighting with my local environment). There's also guarentee that the environment you deploy your application to will have a matching configuration without some pre-emptive tweaking.
-
-## "OK... I'm interested..."
-
-Cracking, then let's get started!
-
 ## In this workshop you will learn...
 
 1) How to build a Convolutional Neural Network (CNN) that can detect handwritten digits (with Keras and the MNIST dataset)
@@ -541,4 +519,60 @@ And Voila! We've learned how to build, train, and deploy a neural network with M
 
 ## Part C: Training the Model in Watson Studio
 
-[Build models using Jupyter Notebooks in IBM Watson Studio](https://developer.ibm.com/tutorials/watson-studio-using-jupyter-notebook/)
+This section borrows heavily from a longer learning path on the IBM Developer site called [Getting started with Watson Studio](https://developer.ibm.com/series/learning-path-watson-studio/).
+
+### Preparing Your Environment
+
+If you don't already have an IBM Cloud account, please create one using the following link: https://ibm.biz/BdzAY2
+The environment setup follows the first few sections of the [Initial Data Exploration](https://developer.ibm.com/tutorials/watson-studio-data-visualization-preparation-transformation/) section of the previously mentioned learning path. Please refer there for more complete instructions. 
+
+ 1. Create IBM Cloud Object Storage service
+ 
+    - From your IBM Cloud account, search for “object storage” in the IBM Cloud Catalog. Then, click the Object Storage tile.
+    - Enter a name and select the Standard (free) version of the service
+    - For the Resource Group, you can use the default value, but a better choice is to use a dedicated group that you have created in IBM Cloud. You can find the command for creating new resource groups in IBM Cloud using the Manage > Account menu option, and then navigating to Account resources > Resource groups in the toolbar to the left. The Create button is in the upper right corner of the page.
+    - Click Create.
+   
+ 2. Create Watson Studio project
+    - Sign in to Watson Studio using the account that you created for your IBM Cloud account
+    - Click either Create a project or New project.
+    - Select Create an empty project.
+    - In the New project window, name the project (for example, “Watson Machine Learning”).
+    - For Storage, you should select the IBM Cloud Object Storage service you created in the previous step. If it is the only storage service that you have provisioned, it is assigned automatically.
+    - Click Create.
+    
+3. Provision IBM Cloud services
+    #### Watson Machine Learning Service
+    To provision the Machine Learning service and associate it with the current project:
+    - Select the Settings tab for the project.
+    - Scroll down to the Associated services section.
+    - Click Add Service.
+    - Select Watson from the drop-down menu.
+    - On the next page, click Add in the Machine Learning service tile.
+    - On the next page, select the New tab to create a new service.
+    - Keep the Lite plan for now (you can change it later, if necessary).
+    - Scroll down and click Create to create the service.
+    - The Confirm Creation window opens, which lets you specify the details of the service such as the region, the plan, the resource group, and the service name.
+    - Enter a name for the service instance (optionally, you can prefix the generated name with “watson-machine-learning”).
+    - For the Resource group, you can choose to use the default value, but a better choice is to use a dedicated group that you have created in IBM Cloud. You can find the command for creating new resource groups in IBM Cloud using the Manage > Account menu option, and then navigating to Account Resources > Resource Groups in the toolbar to the left. The Create button can be found in the upper-right corner of the page.
+    - Click Confirm.
+    
+ 4. Creating the Jupyter Notebook
+ This section skips ahead a bit to the [Build Models using Jupyter Notebooks in Watson Studio](https://developer.ibm.com/tutorials/watson-studio-using-jupyter-notebook/) section of the learning path. Refer there for more complete instructions.
+    - In the Asset tab, click Add to Project.
+    - Select the Notebook asset type.
+    - On the New Notebook page, configure the notebook as follows:
+        - Select the "Blank" tab
+        - Enter the name for the notebook (for example, ‘customer-churn-kaggle’).
+        - Select the Python 3.6 runtime system
+        - Click Create Notebook. This initiates the loading and running of the notebook within IBM Watson Studio.
+        
+### Training your Model
+
+1. Copy your code from `train.py` into the first cell of your Jupyter Notebook.
+2. Add the line `start()` as the last line in the cell.
+3. Press `Shift + Enter` to run the selected cell.
+3. Watch your model train.
+
+You can tweak the resources your Jupyter Notebook uses to see how changing the number of CPUs and the amount of RAM affects your training time. You can also try modifying the batch size and number of epochs to see the effects of those changes as well.
+
