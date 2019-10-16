@@ -564,7 +564,7 @@ The environment setup follows the first few sections of the [Initial Data Explor
     - Select the Notebook asset type.
     - On the New Notebook page, configure the notebook as follows:
         - Select the "Blank" tab
-        - Enter the name for the notebook (for example, ‘customer-churn-kaggle’).
+        - Enter the name for the notebook.
         - Select the Python 3.6 runtime system
         - Click Create Notebook. This initiates the loading and running of the notebook within IBM Watson Studio.
         
@@ -578,5 +578,7 @@ The environment setup follows the first few sections of the [Initial Data Explor
 You can tweak the resources your Jupyter Notebook uses to see how changing the number of CPUs and the amount of RAM affects your training time. You can also try modifying the batch size and number of epochs to see the effects of those changes as well.
 
 Watson Studio Time to Beat:
+
 ~80s per epoch
+
 .9916 accuracy
