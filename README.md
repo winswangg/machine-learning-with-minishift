@@ -570,7 +570,7 @@ The environment setup follows the first few sections of the [Initial Data Explor
 ### Training your Model
 
 1. Copy your code from `train.py` into the first cell of your Jupyter Notebook.
-2. Add the line `start()` as the last line in the cell.
+2. Add the line `start()` before `model.save('mnist.h5')`.
 3. Press `Shift + Enter` to run the selected cell.
 3. Watch your model train.
 
