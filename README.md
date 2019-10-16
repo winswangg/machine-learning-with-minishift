@@ -558,6 +558,7 @@ The environment setup follows the first few sections of the [Initial Data Explor
     - Click Confirm.
     
  4. Creating the Jupyter Notebook
+ 
  This section skips ahead a bit to the [Build Models using Jupyter Notebooks in Watson Studio](https://developer.ibm.com/tutorials/watson-studio-using-jupyter-notebook/) section of the learning path. Refer there for more complete instructions.
     - In the Asset tab, click Add to Project.
     - Select the Notebook asset type.
